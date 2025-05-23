@@ -6,6 +6,8 @@ public class PartII {
         System.out.println(Arrays.toString(leftRotByKOpt(new int[]{1, 2, 3, 4, 5, 6, 7}, 3)));
         System.out.println(Arrays.toString(moveZeroesOpt(new int[]{1, 0, 2, 3, 2, 0, 0, 4, 5, 1})));
         System.out.println(Arrays.toString(union(new int[]{1,1,2,3,4,5} , new int[]{2,3,4,4,5,6})));
+        System.out.println(Arrays.toString(intersection(new int[]{1,1,2,3,4,5} , new int[]{2,3,4,4,5,6})));
+        System.out.println(Arrays.toString(intersectionOpt(new int[]{2,3,4,5} , new int[]{1,4})));
     }
 
     public static int[] leftRotBy1(int[] arr) {
