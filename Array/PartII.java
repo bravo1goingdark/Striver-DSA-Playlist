@@ -5,7 +5,7 @@ public class PartII {
         System.out.println(Arrays.toString(leftRotBy1(new int[]{1, 2, 3, 4, 5})));
         System.out.println(Arrays.toString(leftRotByKOpt(new int[]{1, 2, 3, 4, 5, 6, 7}, 3)));
         System.out.println(Arrays.toString(moveZeroesOpt(new int[]{1, 0, 2, 3, 2, 0, 0, 4, 5, 1})));
-        System.out.println(Arrays.toString(unionOpt(new int[]{1,1,2,3,4,5} , new int[]{2,3,4,4,5,6})));
+        System.out.println(Arrays.toString(union(new int[]{1,1,2,3,4,5} , new int[]{2,3,4,4,5,6})));
     }
 
     public static int[] leftRotBy1(int[] arr) {
@@ -96,7 +96,7 @@ public class PartII {
     }
 
     public static int[] union(int[] f, int[] s) {
-        Set<Integer> set = new HashSet<>();
+        Set<Integer> set = new TreeSet<>();
         for (int e : f) set.add(e);
         for (int e : s) set.add(e);
 
