@@ -143,4 +143,38 @@ public class PartII {
         return list.stream().mapToInt(Integer::intValue).toArray();
     }
 
+    public static int[] intersection(int[] f , int[] s){
+        int[] vis = new int[s.length];
+        List<Integer> list = new ArrayList<>();
+        Arrays.fill(vis,0);
+        for (int k : f) {
+            for (int j = 0; j < s.length; j++) {
+                if (k == s[j] && vis[j] == 0) {
+                    list.add(k);
+                    break;
+                }
+                if (k < s[j]) break;
+            }
+        }
+        return list.stream().mapToInt(Integer::intValue).toArray();
+    }
+    public static int[] intersectionOpt(int[] f , int[] s){
+        int first = 0;
+        int second = 0;
+        List<Integer> list = new ArrayList<>();
+
+        while (first < f.length && second < s.length){
+            if (f[first] == s[second]){
+                list.add(f[first]);
+                first++;
+                second++;
+            }else if (f[first] < s[second]){
+                first++;
+            } else {
+                second++;
+            }
+        }
+        return list.stream().mapToInt(Integer::intValue).toArray();
+    }
+
 }
