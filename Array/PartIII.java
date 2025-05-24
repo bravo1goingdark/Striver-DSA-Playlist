@@ -1,11 +1,18 @@
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+
+import static java.util.Collections.swap;
 
 public class PartIII {
     public static void main(String[] args) {
         System.out.println(missingHash(new int[]{1,2,3,4,5} , 5));
-        System.out.println(missingXor(new int[]{9,6,4,2,3,5,7,0,1} , 9));
+        System.out.println(missing(new int[]{5,4,3,2,1} , 5));
+        System.out.println(missing(new int[]{5,4,3,1}));
+        System.out.println(findDisappearedNumber(new int[]{4,3,2,7,8,2,3,1}));
+        System.out.println(findDuplicate(new int[]{1,3,4,2,2}));
+        System.out.println(findAllDuplicate(new int[]{4,3,2,7,8,2,3,1}));
+        System.out.println(Arrays.toString(findErrorNums(new int[]{1,4,2,2})));
+        System.out.println(singleNumber(new int[]{1,1,2,3,3,4,4}));
+        System.out.println(findMaxConsecOnes(new int[]{1,1,0,1,1,1}));
     }
 
     public static int missing(int[] arr , int n){
