@@ -44,4 +44,116 @@ public class PartIII {
 
         return f ^ s;
     }
+
+    public static int missing(int[] arr){
+        int f = 0;
+
+        // cyclic sort
+        while (f < arr.length){
+            int correctIndex = arr[f]; // from 0 to N
+            if (correctIndex < arr.length && arr[correctIndex] != arr[f]){
+                int temp = arr[correctIndex];
+                arr[correctIndex] = arr[f];
+                arr[f] = temp;
+            }else {
+                f++;
+            }
+        }
+
+        for (int index = 0; index < arr.length; index++) {
+            if (arr[index] != index){
+                return index;
+            }
+        }
+
+        return -1;
+    }
+    public static List<Integer> findDisappearedNumber(int[] arr){
+        int f = 0;
+
+        while (f < arr.length){
+            int correct = arr[f] - 1;
+            if (arr[f] != arr[correct]){
+                int temp = arr[f];
+                arr[f] = arr[correct];
+                arr[correct] = temp;
+            }else {
+                f++;
+            }
+        }
+
+        List<Integer> ans = new ArrayList<>();
+        for (int index = 0; index < arr.length ; index++) {
+            if (arr[index] != index + 1){
+                ans.add(index+1);
+            }
+        }
+
+        return ans;
+    }
+    public static int findDuplicate(int[] arr) {
+        int f = 0;
+
+        while (f < arr.length){
+            int correct = arr[f] - 1;
+            if (arr[f] != arr[correct]){
+                int temp = arr[f];
+                arr[f] = arr[correct];
+                arr[correct] = temp;
+            }else {
+                f++;
+            }
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != i + 1){
+                return arr[i];
+            }
+        }
+        return -1;
+
+    }
+    public static List<Integer> findAllDuplicate(int[] arr) {
+        int f = 0;
+
+        while (f < arr.length){
+            int correct = arr[f] - 1;
+            if (arr[f] != arr[correct]){
+                int temp = arr[f];
+                arr[f] = arr[correct];
+                arr[correct] = temp;
+            }else {
+                f++;
+            }
+        }
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != i + 1){
+                list.add(arr[i]);
+            }
+        }
+        return list;
+
+    }
+    public static int[] findErrorNums(int[] arr) {
+        int f = 0;
+
+        while (f < arr.length){
+            int correct = arr[f] - 1;
+            if (arr[f] != arr[correct]){
+                int temp = arr[f];
+                arr[f] = arr[correct];
+                arr[correct] = temp;
+            }else {
+                f++;
+            }
+        }
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != i + 1){
+                return new int[]{arr[i] , i + 1};
+            }
+        }
+        return new int[]{-1,-1};
+
+    }
 }
