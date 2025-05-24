@@ -156,4 +156,69 @@ public class PartIII {
         return new int[]{-1,-1};
 
     }
+    public static int firstMissingPositive(int[] arr) {
+        int f = 0;
+
+        while (f < arr.length){
+            int correct = arr[f] - 1;
+
+            if (arr[f] > 0 && arr[f] <= arr.length && arr[f] != arr[correct]){
+                int temp = arr[f];
+                arr[f] = arr[correct];
+                arr[correct] = temp;
+            }else {
+                f++;
+            }
+        }
+
+        for (int index = 0; index < arr.length; index++) {
+            if (arr[index] != index + 1){
+                return index + 1;
+            }
+        }
+        // case 2 : if all element are present in the range of [1,n]
+        return arr.length + 1;
+
+    }
+
+    public static int findMaxConsecOnes(int[] arr){
+        int max = 0;
+        int count = 0;
+
+        for (int e : arr){
+            if (e == 1){
+                count++;
+                max = Math.max(max,count);
+            }else {
+                count = 0;
+            }
+        }
+        return max;
+    }
+
+    // find the number that appears once and the other twice
+    public static int singleNumber(int[] arr) {
+        Map<Integer , Integer> map = new HashMap<>();
+
+        for (int e : arr) {
+            if (!map.containsKey(e)){
+                map.put(e , map.getOrDefault(e ,0) + 1);
+            }else {
+                map.put(e , map.getOrDefault(e,0) + 1);
+            }
+        }
+        for (int e : arr){
+            if (map.get(e) == 1){
+                return e;
+            }
+        }
+        return -1;
+    }
+
+    public static int singleNumberOpt(int[] arr) {
+        int ans = 0;
+        for (int e : arr)  ans ^= e;
+        return ans;
+    }
+
 }
