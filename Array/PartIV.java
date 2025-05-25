@@ -4,6 +4,7 @@ import java.util.Map;
 public class PartIV {
     public static void main(String[] args) {
         System.out.println(longestSubWithSumK(new int[]{1, 2, 1,3}, 2));
+        System.out.println(subSumEqualK(new int[]{1,2,3} , 3));
     }
 
     public static int longestSubWithSumKN3(int[] arr, int k) {
@@ -82,6 +83,28 @@ public class PartIV {
         }
 
         return len == 0 ? -1 : len;
+    }
+
+    public static int subSumEqualK(int[] arr , int k){
+        int f = 0;
+        int s = 0;
+
+        int sum = 0;
+        int count = 0;
+
+        while (s < arr.length){
+            sum += arr[s];
+
+            while (f <= s && sum > k){
+                sum = sum - arr[f];
+                f++;
+            }
+            if (sum == k ){
+                count++;
+            }
+            s++;
+        }
+        return count;
     }
 
 
