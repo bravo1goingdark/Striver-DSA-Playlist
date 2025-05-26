@@ -30,8 +30,10 @@ public class PartII {
             arr[i - k] = arr[i];
         }
 
-        for (int i = 0; i < k; i++) {
+        int i = 0;
+        while (i < k) {
             arr[arr.length - k + i] = temp[i];
+            i++;
         }
 
         return arr;
