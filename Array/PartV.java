@@ -47,11 +47,8 @@ public class PartV {
             int sum = arr[left] + arr[right];
 
             if (sum == target) return new int[]{left,right};
-            else if (sum < target) {
-                left++;
-            }else {
-                right--;
-            }
+            else if (sum < target) left++;
+            else right--;
         }
         return new int[]{-1,-1};
     }
