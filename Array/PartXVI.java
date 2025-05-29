@@ -14,6 +14,9 @@ public class PartXVI {
     }
 
     public static List<Integer> spiralOrder(int[][] matrix) {
+
+        // time comp -> O(m*n)
+        // space comp -> O(m*n)
         List<Integer> list = new ArrayList<>();
         int left = 0;
         int top = 0;
