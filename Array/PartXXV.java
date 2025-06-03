@@ -19,7 +19,7 @@ public class PartXXV {
         return count;
     }
 
-    public static int mergeSort(int[] arr) {
+    private static int mergeSort(int[] arr) {
         if (arr.length <= 1) return 0;
 
         int mid = arr.length / 2;
@@ -29,25 +29,38 @@ public class PartXXV {
         int count = 0;
         count += mergeSort(left);
         count += mergeSort(right);
-        count += merge(left, right);
+        count += mergeAndSort(left, right, arr);
 
         return count;
     }
 
-    private static int merge(int[] first, int[] second) {
-        int count = 0;
-        int i = 0;
-        int j = 0;
+    private static int mergeAndSort(int[] left, int[] right, int[] merged) {
+        int i = 0, j = 0, k = 0, count = 0;
 
-        while (i < first.length && j < second.length){
-            if (first[i] < second[j]){
+        while (i < left.length && j < right.length) {
+            if (left[i] <= right[j]) {
+                merged[k] = left[i];
                 i++;
-            }else {
-                count += first.length - i;
+            } else {
+                merged[k] = right[j];
+                count += left.length - i;
                 j++;
             }
+            k++;
         }
 
-       return count;
+        while (i < left.length) {
+            merged[k] = left[i];
+            i++;
+            k++;
+        }
+        while (j < right.length) {
+            merged[k] = right[j];
+            k++;
+            j++;
+        }
+
+        return count;
     }
+
 }
