@@ -11,9 +11,7 @@ public class PartII {
         System.out.print(lastOccurrence(new int[]{1,2,3,3,5,8,8,8,10,10,11} , 8));
         System.out.println(Arrays.toString(firstAndLast(new int[]{1,2,3,3,5,8,8,8,10,10,11} , 8)));
     }
-    public static int ceil(int[] arr,int target){
-        return lowerBound(arr,target) == arr.length ? -1 : arr[lowerBound(arr,target)];
-    }
+
     public static int[] firstAndLast(int[] arr,int target){
         int lb = lowerBound(arr, target);
 
@@ -58,5 +56,9 @@ public class PartII {
             else end = mid - 1;
         }
         return last;
+    }
+
+    public static int NumberOfOccurrence(int[] arr,int target){
+        return lastOccurrence(arr, target) - firstOccurrence(arr, target) + 1;
     }
 }
