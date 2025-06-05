@@ -40,7 +40,6 @@ public class PartIII {
                 end--;
                 continue;
             }
-
             // Left half is sorted
             if (nums[start] <= nums[mid]) {
                 if (nums[start] <= target && target < nums[mid]) end = mid - 1;
