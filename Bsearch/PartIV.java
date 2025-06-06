@@ -3,7 +3,7 @@ package Bsearch;
 public class PartIV {
 
     public static void main(String[] args) {
-        System.out.println(findMin(new int[]{3,4,9,7,1,2,6}));
+        System.out.println(findMin(new int[]{5,1,2,3,4}));
     }
     public static int findMin(int[] nums) {
         int start = 0;
