@@ -2,12 +2,16 @@ package Bsearch;
 
 import java.util.Arrays;
 
-public class PartXV {
+public class PartXVI {
     public static void main(String[] args) {
-        System.out.println(allocateBooks(new int[]{25,46,28,49,24},4));
+        System.out.println(splitArray(new int[]{10,20,30,40},2));
     }
 
+    // same as painters partition problem and split array largest sum
+    public static int splitArray(int[] nums, int k) {
+        return allocateBooks(nums,k);
 
+    }
     public static int allocateBooks(int[] books , int noOfStudent){
         int start = getMax(books);
         int end = Arrays.stream(books).sum();
