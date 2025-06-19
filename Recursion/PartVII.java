@@ -15,9 +15,9 @@ public class PartVII {
         System.out.println(min(mat, mat.length - 1, mat[0].length - 1));
 
         List<List<Integer>> ans = new ArrayList<>();
-        int[] arr = new int[]{2,3,6,7};
+        int[] arr = new int[]{2,5,2,1,2};
         Arrays.sort(arr);
-        combSum(arr,0,7,new ArrayList<>(),ans);
+        combSumII(arr,0,5,new ArrayList<>(),ans);
         System.out.println(ans);
     }
 
@@ -33,11 +33,12 @@ public class PartVII {
     }
 
     public static void combSum(int[] arr, int index, int target, List<Integer> curr, List<List<Integer>> ans) {
-        if (index >= arr.length || target < 0) return;
         if (target == 0) {
             ans.add(new ArrayList<>(curr));
             return;
         }
+
+        if (index >= arr.length || target < 0) return;
 
         // pick
         if (arr[index] <= target) {
@@ -52,6 +53,28 @@ public class PartVII {
 
         // not pick
         combSum(arr, nInd, target, curr, ans);
+    }
+    public static void combSumII(int[] arr, int index, int target, List<Integer> curr, List<List<Integer>> ans) {
+        if (target == 0) {
+            ans.add(new ArrayList<>(curr));
+            return;
+        }
+
+        if (index >= arr.length || target < 0) return;
+
+        // pick
+        if (arr[index] <= target) {
+            curr.add(arr[index]);
+            combSumII(arr, index + 1, target - arr[index], curr, ans);
+            curr.remove(curr.size() - 1);
+        }
+
+        // remove duplicates
+        int nInd = index + 1;
+        while (nInd < arr.length && arr[index] == arr[nInd]) nInd++;
+
+        // not pick
+        combSumII(arr, nInd, target, curr, ans);
     }
 
 
