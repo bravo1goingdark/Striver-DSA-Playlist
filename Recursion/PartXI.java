@@ -17,7 +17,10 @@ public class PartXI {
     public static List<List<String>> solve(int n) {
         List<List<String>> ans = new ArrayList<>();
         Character[][] board = buildBoard(n);
-        nQueen(board, 0, ans);
+        boolean[] r = new boolean[board.length];
+        boolean[] tlbr = new boolean[2 * n];
+        boolean[] trbl = new boolean[2 * n];
+        nQueenOpt(board, 0, r, tlbr, trbl, ans);
         return ans;
     }
 
@@ -82,5 +85,32 @@ public class PartXI {
             res.add(sb.toString());
         }
         return res;
+    }
+
+    public static void nQueenOpt(Character[][] board, int col, boolean[] r, boolean[] tlbr, boolean[] trbl, List<List<String>> ans) {
+
+        if (board.length == col) {
+            ans.add(boardToStringList(board));
+            return;
+        }
+
+        for (int row = 0; row < board.length; row++) {
+            int topLeftBR = row + col;
+            int topRightBL = row - col + board.length;
+
+            if (r[row] || tlbr[topLeftBR] || trbl[topRightBL]) continue;
+
+            board[row][col] = 'Q';
+            r[row] = true;
+            tlbr[topLeftBR] = true;
+            trbl[topRightBL] = true;
+
+            nQueenOpt(board, col + 1, r, tlbr, trbl, ans);
+            board[row][col] = '.';
+            r[row] = false;
+            tlbr[topLeftBR] = false;
+            trbl[topRightBL] = false;
+        }
+
     }
 }
