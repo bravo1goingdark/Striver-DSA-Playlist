@@ -2,6 +2,8 @@
   <dictionary name="project">
     <words>
       <w>nlogn</w>
+      <w>tlbr</w>
+      <w>trbl</w>
     </words>
   </dictionary>
 </component>
