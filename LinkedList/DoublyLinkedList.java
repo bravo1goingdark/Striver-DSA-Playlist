@@ -9,6 +9,10 @@ public class DoublyLinkedList<T> {
         this.head = null;
     }
 
+    public void arrToDLL(T[] arr) {
+        for (T e : arr) addLast(e);
+    }
+
     public void addFirst(T value) {
         DLLNode<T> node = new DLLNode<>(value);
 
@@ -71,12 +75,12 @@ public class DoublyLinkedList<T> {
     }
 
     public DLLNode<T> deleteFirst() {
-        if (head == null) return null;
+        if (head == null || head.next == null) return null;
 
         DLLNode<T> temp = head;
         head = head.next;
 
-        if (head != null) head.prev = null;
+        head.prev = null;
 
         temp.next = null;
         size--;

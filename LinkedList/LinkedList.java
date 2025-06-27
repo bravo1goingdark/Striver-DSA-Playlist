@@ -2,7 +2,7 @@ package LinkedList;
 
 public class LinkedList<T> {
 
-    private LLNode<T> head;
+    public LLNode<T> head;
     private int size;
 
     public LinkedList() {
