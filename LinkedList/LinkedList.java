@@ -139,4 +139,12 @@ public class LinkedList<T> {
 
         return sb.toString();
     }
+    public static void printLL(LLNode<Integer> head) {
+        while (head != null) {
+            System.out.print(head.value);
+            if (head.next != null) System.out.print(" -> ");
+            head = head.next;
+        }
+        System.out.println();
+    }
 }

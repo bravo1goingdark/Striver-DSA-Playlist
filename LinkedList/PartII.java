@@ -9,7 +9,7 @@ public class PartII {
         l2.arrToLL(new Integer[]{4, 6, 7, 8});  // 8->7->6->4 = 8674
 
         LLNode<Integer> add = addTwoNumbers(l1.head, l2.head);
-        printLL(add);  // Should print 3 -> 5 -> 0 -> 1 -> 1 (11063)
+        LinkedList.printLL(add);  // Should print 3 -> 5 -> 0 -> 1 -> 1 (11063)
     }
 
     public static LLNode<Integer> addTwoNumbers(LLNode<Integer> l1, LLNode<Integer> l2) {
@@ -44,15 +44,6 @@ public class PartII {
         }
 
         return dummy.next;
-    }
-
-    public static void printLL(LLNode<Integer> head) {
-        while (head != null) {
-            System.out.print(head.value);
-            if (head.next != null) System.out.print(" -> ");
-            head = head.next;
-        }
-        System.out.println();
     }
 
 

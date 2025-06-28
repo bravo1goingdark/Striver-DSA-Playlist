@@ -11,7 +11,7 @@ public class PartI {
         for (int e : arr) dll.addLast(e);
         System.out.println(dll);
         DLLNode<Integer> temp = reverseDLLOpt(dll.head);
-        printDLL(temp);
+        DoublyLinkedList.printDLL(temp);
     }
 
     // time comp -> O(2N)
@@ -56,18 +56,5 @@ public class PartI {
 
         return head;
     }
-
-    public static void printDLL(DLLNode<Integer> head) {
-        DLLNode<Integer> current = head;
-        while (current != null) {
-            System.out.print(current.value);
-            if (current.next != null) {
-                System.out.print(" <--> ");
-            }
-            current = current.next;
-        }
-        System.out.println();
-    }
-
 
 }

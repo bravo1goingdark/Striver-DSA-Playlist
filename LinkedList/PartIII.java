@@ -6,11 +6,11 @@ import java.util.List;
 public class PartIII {
     public static void main(String[] args) {
         LinkedList<Integer> ll = new LinkedList<Integer>();
-        ll.arrToLL(new Integer[]{2,1,3,5,6,4,7});
+        ll.arrToLL(new Integer[]{2, 1, 3, 5, 6, 4, 7});
 
         System.out.println(ll);
 
-        printLL(oddEvenListOpt(ll.head));
+        LinkedList.printLL(oddEvenListOpt(ll.head));
 
     }
 
@@ -24,13 +24,13 @@ public class PartIII {
         LLNode<Integer> odd = head;
         LLNode<Integer> even = head.next;
 
-        while (odd != null && odd.next != null){
+        while (odd != null && odd.next != null) {
             list.add(odd.value);
             odd = odd.next.next;
         }
         if (odd != null) list.add(odd.value);
 
-        while (even != null && even.next != null){
+        while (even != null && even.next != null) {
             list.add(even.value);
             even = even.next.next;
         }
@@ -39,7 +39,7 @@ public class PartIII {
         LLNode<Integer> temp = head;
 
         int index = 0;
-        while (temp != null){
+        while (temp != null) {
             temp.value = list.get(index);
             index++;
             temp = temp.next;
@@ -57,7 +57,7 @@ public class PartIII {
         LLNode<Integer> even = head.next;
         LLNode<Integer> evenHead = head.next;
 
-        while (even != null && even.next != null){
+        while (even != null && even.next != null) {
             odd.next = odd.next.next;
             even.next = even.next.next;
 
@@ -69,12 +69,5 @@ public class PartIII {
 
         return head;
     }
-    public static void printLL(LLNode<Integer> head) {
-        while (head != null) {
-            System.out.print(head.value);
-            if (head.next != null) System.out.print(" -> ");
-            head = head.next;
-        }
-        System.out.println();
-    }
+
 }

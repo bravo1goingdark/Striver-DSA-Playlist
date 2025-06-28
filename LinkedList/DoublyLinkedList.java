@@ -157,4 +157,15 @@ public class DoublyLinkedList<T> {
 
         return sb.toString();
     }
+    public static void printDLL(DLLNode<Integer> head) {
+        DLLNode<Integer> current = head;
+        while (current != null) {
+            System.out.print(current.value);
+            if (current.next != null) {
+                System.out.print(" <--> ");
+            }
+            current = current.next;
+        }
+        System.out.println();
+    }
 }
