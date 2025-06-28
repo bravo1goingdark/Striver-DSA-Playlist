@@ -56,7 +56,7 @@ public class PartIII {
         LLNode<Integer> odd = head;
         LLNode<Integer> even = head.next;
         LLNode<Integer> evenHead = head.next;
-
+        // 2, 1, 3, 5, 6, 4, 7
         while (even != null && even.next != null) {
             odd.next = odd.next.next;
             even.next = even.next.next;
