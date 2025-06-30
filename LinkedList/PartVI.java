@@ -5,7 +5,7 @@ import java.util.Stack;
 public class PartVI {
     public static void main(String[] args) {
         LinkedList<Integer> ll = new LinkedList<Integer>();
-        ll.arrToLL(new Integer[]{1, 2, 3, 4});
+        ll.arrToLL(new Integer[]{1,5,2});
         LinkedList.printLL(reverseListOptRecur(ll.head,null));
     }
 
