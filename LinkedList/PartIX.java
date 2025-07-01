@@ -28,11 +28,11 @@ public class PartIX {
         System.out.print("List B: ");
         LinkedList.printLL(b1);
 
-        System.out.println(getIntersectionNode(a1, b1).getValue());
+        System.out.println(interOpt(a1,b1).value);
     }
+
     public static LLNode<Integer> getIntersectionNode(LLNode<Integer> headA, LLNode<Integer> headB) {
         Set<LLNode<Integer>> set = new HashSet<>();
-
         LLNode<Integer> ll = headA;
 
         while (ll != null) {
@@ -49,5 +49,56 @@ public class PartIX {
         }
 
         return null;
+    }
+
+    public static LLNode<Integer> getInter(LLNode<Integer> a, LLNode<Integer> b) {
+        if (a == null || b == null) return null;
+        int lenOfA = getLen(a);
+        int lenOfB = getLen(b);
+
+        if (lenOfA > lenOfB) {
+            int diff = lenOfA - lenOfB;
+            while (diff-- > 0) a = a.next;
+        } else {
+            int diff = lenOfB - lenOfA;
+            while (diff-- > 0) b = b.next;
+        }
+        return intersection(a, b);
+    }
+    private static LLNode<Integer> intersection(LLNode<Integer> f, LLNode<Integer> s) {
+
+        while (f != null && s != null) {
+            if (f == s) {
+                return f;
+            }
+            f = f.next;
+            s = s.next;
+        }
+        return null;
+    }
+
+    private static int getLen(LLNode<Integer> head) {
+        int len = 0;
+
+        LLNode<Integer> temp = head;
+        while (temp != null) {
+            len++;
+            temp = temp.next;
+        }
+
+        return len;
+    }
+
+    public static LLNode<Integer> interOpt(LLNode<Integer> a , LLNode<Integer> b){
+        if (a == null || b == null) return null;
+        LLNode<Integer> f = a;
+        LLNode<Integer> s = b;
+
+        while (f != s){
+            f = f == null ? b : f.next;
+            s = s == null ? a : s.next;
+        }
+
+        return f;
     }
 }

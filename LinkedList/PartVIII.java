@@ -27,7 +27,6 @@ public class PartVIII {
 
         head.value = sum % 10;
         return sum / 10;
-
     }
 
     public static LLNode<Integer> addOne(LLNode<Integer> head) {
