@@ -6,7 +6,7 @@ public class PartXVII {
 
     public static void main(String[] args) {
         DoublyLinkedList<Integer> dll = new DoublyLinkedList<Integer>();
-        dll.arrToDLL(new Integer[]{1, 2, 3, 3, 4, 4, 5});
+        dll.arrToDLL(new Integer[]{1, 2, 3, 3, 4, 5, 5});
         DoublyLinkedList.printDLL(removeDuplicatesII(dll.head));
     }
 
@@ -24,7 +24,7 @@ public class PartXVII {
 
             temp.next = nextNode;
             if (nextNode != null) nextNode.prev = temp;
-            temp = temp.next;
+            temp = nextNode;
         }
 
         return head;
@@ -40,27 +40,21 @@ public class PartXVII {
         DLLNode<Integer> temp = head;
 
         while (temp != null) {
-            boolean isDuplicate = false;
             DLLNode<Integer> nextNode = temp.next;
 
             while (nextNode != null && nextNode.value.equals(temp.value)) {
-                isDuplicate = true;
                 nextNode = nextNode.next;
             }
 
-            if (isDuplicate) {
-                // Remove all nodes with this duplicate value
-                DLLNode<Integer> prevNode = temp.prev;
-                prevNode.next = nextNode;
-                if (nextNode != null) {
-                    nextNode.prev = prevNode;
-                }
-            } else temp = temp.next;
-
-            if (isDuplicate) temp = nextNode;
+           if (temp.next != nextNode){ // duplicates detected
+               DLLNode<Integer> prevNode = temp.prev;
+               prevNode.next = nextNode;
+               if (nextNode != null) nextNode.prev = temp;
+               temp = nextNode;
+           }
+           else temp = temp.next; // no duplicates
         }
-
-        return dummy.next;
+        return head;
     }
 
 }
