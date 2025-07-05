@@ -12,11 +12,10 @@ public class PartXX {
     }
 
     public static LLNode<Integer> mergeTwoLists(LLNode<Integer> list1, LLNode<Integer> list2) {
-        if (list1 == null) return list1;
-        if (list2 == null) return list2;
+        if (list1 == null) return list2;
+        if (list2 == null) return list1;
 
         return merge(list1, list2);
-
     }
 
     private static LLNode<Integer> merge(LLNode<Integer> list1, LLNode<Integer> list2) {
@@ -33,7 +32,6 @@ public class PartXX {
             }
             temp = temp.next;
         }
-
 
         temp.next = list1 != null ? list1 : list2;
         return newList.next;
