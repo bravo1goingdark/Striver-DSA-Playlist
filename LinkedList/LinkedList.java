@@ -142,9 +142,9 @@ public class LinkedList<T> {
     public static void printLL(LLNode<Integer> head) {
         while (head != null) {
             System.out.print(head.value);
-            if (head.next != null) System.out.print(" -> ");
+            System.out.print(" -> ");
             head = head.next;
         }
-        System.out.println();
+        System.out.println("null");
     }
 }
