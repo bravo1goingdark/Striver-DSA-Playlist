@@ -74,15 +74,15 @@ public class PartXXIV {
             Node copy = new Node(temp.val);
             copy.next = temp.next;
             temp.next = copy;
-            temp = copy.next;
+            temp = temp.next.next;
         }
 
         temp = head;
         while (temp != null) {
-            if (temp.random != null) {
-                temp.next.random = temp.random.next;
-            }
+            Node copy = temp.next;
+            copy.random = temp.random != null ? temp.random.next : null;
             temp = temp.next.next;
+
         }
 
         Node dummy = new Node(0);
