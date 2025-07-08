@@ -2,7 +2,8 @@ package BitManipulation;
 
 public class PartI {
     public static void main(String[] args) {
-        System.out.println(toDecimal(toBinary(18)));
+        System.out.println(toBinary(32));
+        System.out.println(toBinary(31));
     }
 
 
