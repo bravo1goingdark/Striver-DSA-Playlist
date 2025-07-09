@@ -6,7 +6,7 @@ import java.util.List;
 
 public class PartIV {
     public static void main(String[] args) {
-        System.out.println(pow(new int[]{1,2,3}));
+        System.out.println(pow(new int[]{1, 2, 3}));
     }
 
     public static List<List<Integer>> pow(int[] num) {
