@@ -64,7 +64,6 @@ public class PartV {
         int ones = 0;
         int twos = 0;
 
-
         for (int e : nums) {
             ones = (e ^ ones) & ~twos;
             twos = (e ^ twos) & ~ones;
