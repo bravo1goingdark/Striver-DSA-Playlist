@@ -6,7 +6,8 @@ import java.util.Map;
 
 public class PartV {
     public static void main(String[] args) {
-        System.out.println(singleNumberIIBetterII(new int[]{1, 1, 1, 2, 2, 2, 3, 4, 4, 4}));
+        System.out.println((6 & 5) ^ 6);
+        System.out.println(singleNumberIIBetter(new int[]{1, 1, 1, 2, 3, 3,3}));
     }
 
     public static int singleNumber(int[] nums) {
@@ -44,7 +45,6 @@ public class PartV {
             if (count % 3 == 1) {
                 ans = ans | (1 << bitIndex);
             }
-
         }
         return ans;
     }
@@ -63,7 +63,6 @@ public class PartV {
     public static int singleNumberOpt(int[] nums) {
         int ones = 0;
         int twos = 0;
-
 
         for (int e : nums) {
             ones = (e ^ ones) & ~twos;
