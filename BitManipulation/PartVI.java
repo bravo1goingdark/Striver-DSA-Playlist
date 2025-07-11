@@ -2,7 +2,6 @@ package BitManipulation;
 
 public class PartVI {
     public static void main(String[] args) {
-        System.out.println(XorRange(3,5));
 
     }
     public static int findXOR(int L, int R) {
