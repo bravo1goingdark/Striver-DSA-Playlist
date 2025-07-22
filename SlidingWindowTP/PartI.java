@@ -9,20 +9,26 @@ public class PartI {
         if (nums.length < k || k <= 0) return 0;
 
         int currentSum = 0;
+        int left = 0;
+        int right = k - 1;
 
         // initial window sum
         for (int i = 0; i < k; i++) {
             currentSum += nums[i];
         }
 
-        int maxSum = currentSum;
+        int max = currentSum;
 
-        for (int i = k; i < nums.length; i++) {
-            currentSum = currentSum + nums[i] - nums[i - k];
-            maxSum = Math.max(maxSum, currentSum);
+        while (right < nums.length - 1) {
+            currentSum = currentSum - nums[left];
+            left++;
+            right++;
+            currentSum = currentSum + nums[right];
+
+            max = Math.max(currentSum, max);
         }
 
-        return maxSum;
+        return max;
     }
 
 }
