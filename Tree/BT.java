@@ -106,5 +106,28 @@ public class BT {
 
     }
 
+    public static int findSecondMinimumValue(TreeNode root) {
+        if (root == null) return -1;
+
+        int min = root.val;
+        long secondMin = Long.MAX_VALUE; 
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+
+            if (node.val > min && node.val < secondMin) {
+                secondMin = node.val;
+            }
+
+            if (node.left != null) queue.offer(node.left);
+            if (node.right != null) queue.offer(node.right);
+        }
+
+        return secondMin == Long.MAX_VALUE ? -1 : (int) secondMin;
+    }
+
+
 
 }
