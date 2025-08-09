@@ -1,6 +1,5 @@
 package Tree;
 
-import javax.swing.event.ListDataEvent;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -24,12 +23,12 @@ public class BT {
 
         System.out.println(bfs(root));
         System.out.println(largestValues(root));
+        System.out.println(findSecondMinimumValue(root));
     }
 
 
     public static void preOrder(TreeNode root) {
         if (root == null) return;
-
         System.out.print(root.val + " ");
         preOrder(root.left);
         preOrder(root.right);
@@ -110,7 +109,7 @@ public class BT {
         if (root == null) return -1;
 
         int min = root.val;
-        long secondMin = Long.MAX_VALUE; 
+        long secondMin = Long.MAX_VALUE;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
 
