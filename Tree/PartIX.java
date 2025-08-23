@@ -61,6 +61,50 @@ public class PartIX {
         return ans;
     }
 
+    public List<Integer> leftView(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        if (root == null) return result;
+
+        Queue<TreeNode> que = new LinkedList<>();
+        que.offer(root);
+
+        while (!que.isEmpty()) {
+            int levelsize = que.size();
+            for (int i = 0; i < levelsize; i++) {
+                TreeNode currNode = que.poll();
+                if (currNode == null) break;
+
+                if (i == 0) result.add(currNode.val);
+
+                if (currNode.left != null) que.add(currNode.left);
+                if (currNode.right != null) que.add(currNode.right);
+            }
+        }
+        return result;
+    }
+
+    public List<Integer> rightView(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        if (root == null) return result;
+
+        Queue<TreeNode> que = new LinkedList<>();
+        que.offer(root);
+
+        while (!que.isEmpty()) {
+            int levelsize = que.size();
+            for (int i = 0; i < levelsize; i++) {
+                TreeNode currNode = que.poll();
+                if (currNode == null) break;
+
+                if (i == levelsize - 1) result.add(currNode.val);
+
+                if (currNode.left != null) que.add(currNode.left);
+                if (currNode.right != null) que.add(currNode.right);
+            }
+        }
+        return result;
+    }
+
     private static class Pair {
         public int hd;
         public TreeNode node;
