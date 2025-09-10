@@ -3,6 +3,22 @@ package Tree;
 import java.util.*;
 
 public class PartIX {
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+
+        root.left.right.left = new TreeNode(6);
+
+        root.right.right = new TreeNode(7);
+
+        System.out.println(getTopView(root));
+        System.out.println(bottomView(root));
+    }
+
 
     public static List<Integer> getTopView(TreeNode root) {
         if (root == null) return new ArrayList<>();
@@ -16,19 +32,14 @@ public class PartIX {
             int hd = curr.hd;
             TreeNode node = curr.node;
 
-
-            if (!map.containsKey(hd)) {
-                map.put(hd, node.val);
-            }
+            if (!map.containsKey(hd)) map.put(hd, node.val);
 
             if (node.left != null) queue.add(new Pair(hd - 1, node.left));
             if (node.right != null) queue.add(new Pair(hd + 1, node.right));
         }
 
         List<Integer> ans = new ArrayList<>();
-        for (Map.Entry<Integer, Integer> v : map.entrySet()) {
-            ans.add(v.getValue());
-        }
+        for (Map.Entry<Integer, Integer> v : map.entrySet()) ans.add(v.getValue());
         return ans;
     }
 
@@ -47,7 +58,7 @@ public class PartIX {
 
             /// the only difference between top and bottom view is
             /// in top view -> we only insert in map if that key is not already in the map
-            /// in bottom view -> we do not check if there is a key or not , if there is we simple overwrite the key
+            /// in bottom view -> we do not check if there is a key or not , if there is we simply overwrite the key
             map.put(hd, node.val);
 
             if (node.left != null) queue.add(new Pair(hd - 1, node.left));
