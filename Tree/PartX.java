@@ -22,6 +22,7 @@ public class PartX {
 
             queue.offer(t1.left);
             queue.offer(t2.right);
+
             queue.offer(t1.right);
             queue.offer(t2.left);
         }
