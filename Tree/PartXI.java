@@ -14,11 +14,12 @@ public class PartXI {
         root.left.right.left = new TreeNode(7);
 
         root.right.right = new TreeNode(5);
+        System.out.println(binaryTreePaths(root));
 
         // test root-to-node path by VALUE
-        System.out.println(getPath(root, 5)); // ?
-        System.out.println(getPath(root, 7)); // ?
-        System.out.println(getPath(root, 4)); // ?
+        System.out.println(getPath(root, 5));
+        System.out.println(getPath(root, 7));
+        System.out.println(getPath(root, 4));
     }
 
     public static List<String> binaryTreePaths(TreeNode root) {
@@ -57,7 +58,6 @@ public class PartXI {
         }
 
         ans.remove(ans.size() - 1);
-
         return false;
     }
 }
