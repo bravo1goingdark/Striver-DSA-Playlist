@@ -10,13 +10,12 @@ public class PartXVI {
         return amountOfTimeHelper(root, target);
     }
 
-
     public int amountOfTimeHelper(TreeNode root, TreeNode target) {
         if (root == null) return 0;
         Queue<TreeNode> queue = new LinkedList<>();
         Map<TreeNode, TreeNode> map = new HashMap<>();
-        mapParents(root, map);
         Set<TreeNode> visited = new HashSet<>();
+        mapParents(root, map);
         int time = 0;
 
         queue.add(target);

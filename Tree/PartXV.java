@@ -66,9 +66,8 @@ public class PartXV {
             distance_counter++;
         }
 
-        while (!queue.isEmpty()) {
-            list.add(queue.poll().val);
-        }
+        while (!queue.isEmpty()) list.add(queue.poll().val);
+
         return list;
     }
 }
