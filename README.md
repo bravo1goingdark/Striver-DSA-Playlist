@@ -21,8 +21,10 @@ The repository is organized into folders, with each folder corresponding to a sp
 | **Maths**                           | Solutions for problems related to mathematical algorithms. |
 | **Recursion**                       | Solutions for problems related to recursion.    |
 | **Sliding Window & Two Pointer**    | Solutions for problems related to the sliding window and two-pointer techniques. |
+| **Strings**                         | Solutions for problems related to strings.      |
 | **Trees**                           | Solutions for problems related to binary trees and binary search trees. |
 | **Tries**                           | Solutions for problems related to tries.        |
+| **Greedy**                          | Solutions for problems related to greedy algorithms. |
 
 Each `PartX.java` file within these folders typically contains solutions to one or more problems from the corresponding section of the playlist.
 
