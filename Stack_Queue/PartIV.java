@@ -1,15 +1,17 @@
 package Stack_Queue;
 
 public class PartIV {
+    public static void main(String[] args) {
+        System.out.println(inFixToPostFix("A^B^C"));
+    }
 
 
     public static String inFixToPostFix(String input) {
         StringBuilder sb = new StringBuilder();
         Stack<Character> stack = new Stack<>();
 
-
         for (char ch : input.toCharArray()) {
-            if (!isOperator(ch) && ch != '(' && ch != ')') sb.append(ch);
+            if (Character.isLetterOrDigit(ch)) sb.append(ch);
             else if (ch == '(') stack.push(ch);
             else if (ch == ')') {
                 while (!stack.isEmpty() && stack.peek() != '(') {
@@ -18,9 +20,10 @@ public class PartIV {
                 stack.pop();
             } else {
                 while (!stack.isEmpty() &&
-                        stack.peek() != '(' &&
-                        getPriority(stack.peek()) <= getPriority(ch)
-                ) {
+                        (getPriority(stack.peek()) > getPriority(ch) ||
+                                (getPriority(stack.peek()) == getPriority(ch)
+                                        && ch != '^')))
+                {
                     sb.append(stack.pop());
                 }
                 stack.push(ch);
@@ -34,12 +37,10 @@ public class PartIV {
 
 
     private static int getPriority(char ch) {
-        if (ch == '+' || ch == '-') return 3;
-        if (ch == '*' || ch == '/') return 2;
-        return 1;
+        if (ch == '+' || ch == '-') return 1;
+        else if (ch == '*' || ch == '/') return 2;
+        else if (ch == '^') return 3;
+        return -1;
     }
 
-    private static boolean isOperator(char ch) {
-        return ch == '+' || ch == '-' || ch == '/' || ch == '*' || ch == '^';
-    }
 }
