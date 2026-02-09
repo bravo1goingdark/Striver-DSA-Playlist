@@ -19,11 +19,13 @@ public class PartIV {
                 }
                 stack.pop();
             } else {
+                // current top of the stack
+                char top = stack.peek();
+
                 while (!stack.isEmpty() &&
-                        (getPriority(stack.peek()) > getPriority(ch) ||
-                                (getPriority(stack.peek()) == getPriority(ch)
-                                        && ch != '^')))
-                {
+                        (getPriority(top) > getPriority(ch) ||
+                                (getPriority(top) == getPriority(ch) && ch != '^'))) {
+
                     sb.append(stack.pop());
                 }
                 stack.push(ch);
@@ -36,7 +38,7 @@ public class PartIV {
     }
 
 
-    private static int getPriority(char ch) {
+    public static int getPriority(char ch) {
         if (ch == '+' || ch == '-') return 1;
         else if (ch == '*' || ch == '/') return 2;
         else if (ch == '^') return 3;
