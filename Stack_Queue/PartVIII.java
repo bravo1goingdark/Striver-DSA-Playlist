@@ -46,7 +46,7 @@ public class PartVIII {
                 }
             }
 
-            if (i < nums.length){
+            if (i < nums.length) {
                 if (stack.isEmpty()) nge[i] = -1;
                 else nge[i] = stack.peek();
             }
@@ -54,7 +54,21 @@ public class PartVIII {
             stack.push(curr);
         }
         return nge;
+    }
 
+    public static int[] dailyTemperatures(int[] temperatures) {
+        Stack<Integer> stack = new Stack<>();
+        int[] result = new int[temperatures.length];
 
+        for (int i = 0; i < temperatures.length; i++) {
+            while (!stack.isEmpty() && temperatures[i] > temperatures[stack.peek()]) {
+
+                int prevIndex = stack.pop();
+                result[prevIndex] = i - prevIndex;
+            }
+            stack.push(i);
+        }
+
+        return result;
     }
 }
