@@ -2,7 +2,9 @@ package Stack_Queue;
 
 public class PartXI {
     public static void main(String[] args) {
-        System.out.println(subArrayRanges(new int[]{1,2,3}));
+        System.out.println(subArrayRangesOpt(new int[]{1,2,3}));
+        System.out.println(subArrayRangesOpt(new int[]{10,12,63}));
+
     }
 
 
